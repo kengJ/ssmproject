@@ -38,5 +38,5 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
+<import resource="classpath:spring-interceptors.xml" />
 </beans>
