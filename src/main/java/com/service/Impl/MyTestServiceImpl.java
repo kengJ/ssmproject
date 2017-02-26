@@ -10,7 +10,7 @@ import com.model.SortModel;
 import com.service.IMyTestService;
 
 @Service("myTestImpl")
-public class MyTestImpl implements IMyTestService  {
+public class MyTestServiceImpl implements IMyTestService  {
 	 //使用@Autowired注释获取相应的对象
 	@Autowired(required = false)
 	private IMyTestDao myTestdao;
