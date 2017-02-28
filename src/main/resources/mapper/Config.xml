@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IConfigDao">
+    <select id="SelectConfig" parameterType="java.lang.Integer" resultMap="ConfigMap">
+    SELECT ConfigId,ConfigKey,ConfigValue FROM Config WHERE ConfigId = #{ConfigId}
+    </select>
+
+    <select id="AllConfig" resultMap="ConfigMap">
+        SELECT ConfigId,ConfigKey,ConfigValue FROM Config
+    </select>
+
+    <select id="QueryConfig" parameterType="Admin" resultMap="ConfigMap">
+        SELECT ConfigId,ConfigKey,ConfigValue FROM Config WHERE 
+        <if test="AdminId > 0">
+        	id = #{id}
+        </if>
+    </select>
+
+    <resultMap type="com.model.Config" id="ConfigMap">
+        <id column="ConfigId" property="ConfigId"/>
+        <result column="ConfigKey" property="ConfigKey"/>
+        <result column="ConfigValue" property="ConfigValue"/>
+    </resultMap>
+</mapper> 
